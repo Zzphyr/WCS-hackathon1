@@ -1,18 +1,18 @@
 import React from 'react';
-import Bubble from './Bubble';
+import Avatar from './Avatar';
         
 
 
-const Home = ({ people }) => {
+const Home = ({ people, getUserChoice }) => {
     console.log("Home", people)
-    
+    //console.log("Home",getUserChoice)
     
     return (
         <>
-        {people.map((p,i) => {
+        {people.map((person) => {
             return (
-                <div key={p.name}>
-                    <Bubble person={p} />
+                <div key={person.name}>
+                    <Avatar person={person} getUserChoice={getUserChoice} />
                 </div>
             )
         })}
