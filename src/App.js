@@ -5,7 +5,7 @@ import Home from './Home';
 import Card from './Landing';
 import Profile from './Profile';
 
-import './App.css';
+import './App.scss';
 
 class App extends React.Component {
   constructor(props) {
@@ -51,7 +51,14 @@ class App extends React.Component {
     //console.log("App chosenOne", chosenOne)
 
     return (
-      <Fragment>
+
+      <div>
+
+        <div id='stars'></div>
+        <div id='stars2'></div>
+        <div id='stars3'></div>
+        <div id='title'></div>
+      
           <Switch>
             <Route 
               exact path="/" 
@@ -78,7 +85,7 @@ class App extends React.Component {
               )}
             />
           </Switch>
-      </Fragment >
+      </div>
     )
   }
 }
