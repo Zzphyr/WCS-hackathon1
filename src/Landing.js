@@ -10,7 +10,7 @@ const cardContainer = document.querySelector('.card-container')
 
 const CardWrapper = styled.div`
   overflow: hidden;
-  padding: 0 0 32px;
+  padding: 0 0;
   margin: 48px auto 0;
   width: 300px;
   font-family: Quicksand, arial, sans-serif;
@@ -22,6 +22,7 @@ const CardHeader = styled.header`
   padding-top: 32px;
   padding-bottom: 32px;
   background-color: white;
+  opacity: 0.7;
 `
 
 const CardHeading = styled.h1`
@@ -34,6 +35,7 @@ const CardBody = styled.div`
   padding-right: 32px;
   padding-left: 32px;
   background-color: white;
+  opacity: 0.7;
 `
 
 const CardFieldset = styled.fieldset`
