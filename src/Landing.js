@@ -21,6 +21,7 @@ const CardWrapper = styled.div`
 const CardHeader = styled.header`
   padding-top: 32px;
   padding-bottom: 32px;
+  background-color: white;
 `
 
 const CardHeading = styled.h1`
@@ -32,6 +33,7 @@ const CardHeading = styled.h1`
 const CardBody = styled.div`
   padding-right: 32px;
   padding-left: 32px;
+  background-color: white;
 `
 
 const CardFieldset = styled.fieldset`
@@ -140,6 +142,7 @@ const CardLink = styled.a`
   border-bottom: 1px solid #ddd;
   cursor: pointer;
   transition: color .25s ease-in;
+  
 
   &:hover {
     color: #777;
