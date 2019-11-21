@@ -1,8 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './Home';
-import Landing from './Landing';
-import Signup from './Signup';
+import Card from './Landing';
 import Profile from './Profile';
 
 import './App.css';
@@ -32,7 +31,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { people, userInfo } = this.state;
+    const { people } = this.state;
     console.log(people)
     return (
       <div >
@@ -40,14 +39,9 @@ class App extends React.Component {
           <Switch>
             <Route 
               exact path="/" 
-              component={Landing} 
+              component={Card} 
               />
-            <Route 
-              path="/signup"
-              render = {() => (
-                <Signup
-                  userInfo={userInfo}
-                />
+            
               )}
             />
             <Route 
