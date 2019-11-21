@@ -1,15 +1,18 @@
 import React from 'react';
-import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './Home';
 import Landing from './Landing';
 import Signup from './Signup';
+import Profile from './Profile';
+
+import './App.css';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       people: [],
+      userInfo: {},
     }
   }
 
@@ -29,15 +32,40 @@ class App extends React.Component {
   }
 
   render() {
-
-    console.log(this.state.people)
+    const { people, userInfo } = this.state;
+    console.log(people)
     return (
       <div >
         <BrowserRouter>
           <Switch>
-            <Route path exact="/" component={Landing} />
-            <Route path="/Signup" component={Signup} />
-            <Route path="/Home" component={Home} />
+            <Route 
+              exact path="/" 
+              component={Landing} 
+              />
+            <Route 
+              path="/signup"
+              render = {() => (
+                <Signup
+                  userInfo={userInfo}
+                />
+              )}
+            />
+            <Route 
+              path="/home" 
+              render = {() => (
+                <Home
+                  people={people}
+                />
+              )}
+            />
+            <Route 
+              path="/profile"
+              render = {() => (
+                <Profile
+                  people={people}
+                />
+              )}
+            />
           </Switch>
         </BrowserRouter>
 
