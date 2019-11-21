@@ -1,8 +1,9 @@
 
 import React from 'react';
 
-const Profile = ({ people }) => {
-    console.log("Profile", people)
+const Profile = ({ chosenOne }) => {
+    //console.log("Profile people", people)
+    console.log("Profile chosen", chosenOne)
     return (
         <div></div>
     )

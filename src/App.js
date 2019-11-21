@@ -1,5 +1,6 @@
-import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import React, { Fragment } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import Home from './Home';
 import Card from './Landing';
 import Profile from './Profile';
@@ -12,6 +13,7 @@ class App extends React.Component {
     this.state = {
       people: [],
       userInfo: {},
+      chosenOne: {}
     }
   }
 
@@ -24,24 +26,39 @@ class App extends React.Component {
     fetch('https://melroune.github.io/starwars-api/api/all.json')
       .then(response => response.json())
       .then(data => {
-        this.setState(
-          { people: data }
+        this.setState( 
+          state => ({
+          ...state,
+          people: data 
+          })
         )
       })
   }
 
+  handleUserChoice = (chosenOne) => {
+    this.setState(      
+      state => ({
+          ...state,
+          chosenOne : chosenOne,
+      }), 
+      () => this.props.history.push('/profile')
+    )
+  }
+
   render() {
-    const { people } = this.state;
-    console.log(people)
+    const { people, userInfo, chosenOne } = this.state;
+    //console.log(people)
+    //console.log("App chosenOne", chosenOne)
+
     return (
+
       <div>
 
         <div id='stars'></div>
         <div id='stars2'></div>
         <div id='stars3'></div>
         <div id='title'></div>
-
-        <BrowserRouter>
+      
           <Switch>
             <Route 
               exact path="/" 
@@ -55,6 +72,7 @@ class App extends React.Component {
               render = {() => (
                 <Home
                   people={people}
+                  getUserChoice={this.handleUserChoice}
                 />
               )}
             />
@@ -62,17 +80,15 @@ class App extends React.Component {
               path="/profile"
               render = {() => (
                 <Profile
-                  people={people}
+                  chosenOne={chosenOne}
                 />
               )}
             />
           </Switch>
-        </BrowserRouter>
-
-      </div >
+      </div>
     )
   }
 }
 
-export default App;
+export default withRouter(App);
 
