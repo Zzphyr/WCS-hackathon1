@@ -2,8 +2,7 @@ import React, { Fragment } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import Home from './Home';
-import Landing from './Landing';
-import Signup from './Signup';
+import Card from './Landing';
 import Profile from './Profile';
 
 import './App.css';
@@ -50,19 +49,15 @@ class App extends React.Component {
     const { people, userInfo, chosenOne } = this.state;
     //console.log(people)
     //console.log("App chosenOne", chosenOne)
+
     return (
       <Fragment>
           <Switch>
             <Route 
               exact path="/" 
-              component={Landing} 
+              component={Card} 
               />
-            <Route 
-              path="/signup"
-              render = {() => (
-                <Signup
-                  userInfo={userInfo}
-                />
+            
               )}
             />
             <Route 
