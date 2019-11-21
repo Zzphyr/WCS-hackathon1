@@ -1,0 +1,20 @@
+html {
+    font-size: 16px;
+  }
+  
+  body {
+    font-size: 100%;
+  }
+
+.card-container {
+    padding-top: 200px;
+    
+}
+
+Link {
+    text-decoration: none!important;
+}
+
+Link:hover {
+    text-decoration: none!important; 
+}
