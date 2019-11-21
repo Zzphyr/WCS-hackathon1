@@ -1,5 +1,9 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Home from './Home';
+import Landing from './Landing';
+import Signup from './Signup';
 
 class App extends React.Component {
   constructor(props) {
@@ -16,23 +20,31 @@ class App extends React.Component {
   // Fetch character list from API
   getPeople = () => {
     fetch('https://melroune.github.io/starwars-api/api/all.json')
-      .then (response => response.json())
-      .then (data => {
+      .then(response => response.json())
+      .then(data => {
         this.setState(
-          {people: data}
+          { people: data }
         )
       })
-    }
-  
+  }
+
   render() {
 
     console.log(this.state.people)
     return (
       <div >
-        
-      </div>
+        <BrowserRouter>
+          <Switch>
+            <Route path exact="/" component={Landing} />
+            <Route path="/Signup" component={Signup} />
+            <Route path="/Home" component={Home} />
+          </Switch>
+        </BrowserRouter>
+
+      </div >
     )
   }
 }
 
 export default App;
+
