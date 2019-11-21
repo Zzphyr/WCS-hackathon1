@@ -1,5 +1,6 @@
-import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import React, { Fragment } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import { withRouter } from 'react-router';
 import Home from './Home';
 import Landing from './Landing';
 import Signup from './Signup';
@@ -13,6 +14,7 @@ class App extends React.Component {
     this.state = {
       people: [],
       userInfo: {},
+      chosenOne: {}
     }
   }
 
@@ -25,18 +27,31 @@ class App extends React.Component {
     fetch('https://melroune.github.io/starwars-api/api/all.json')
       .then(response => response.json())
       .then(data => {
-        this.setState(
-          { people: data }
+        this.setState( 
+          state => ({
+          ...state,
+          people: data 
+          })
         )
       })
   }
 
+  handleUserChoice = (chosenOne) => {
+    this.setState(      
+      state => ({
+          ...state,
+          chosenOne : chosenOne,
+      }), 
+      () => this.props.history.push('/profile')
+    )
+  }
+
   render() {
-    const { people, userInfo } = this.state;
-    console.log(people)
+    const { people, userInfo, chosenOne } = this.state;
+    //console.log(people)
+    //console.log("App chosenOne", chosenOne)
     return (
-      <div >
-        <BrowserRouter>
+      <Fragment>
           <Switch>
             <Route 
               exact path="/" 
@@ -55,6 +70,7 @@ class App extends React.Component {
               render = {() => (
                 <Home
                   people={people}
+                  getUserChoice={this.handleUserChoice}
                 />
               )}
             />
@@ -62,17 +78,15 @@ class App extends React.Component {
               path="/profile"
               render = {() => (
                 <Profile
-                  people={people}
+                  chosenOne={chosenOne}
                 />
               )}
             />
           </Switch>
-        </BrowserRouter>
-
-      </div >
+      </Fragment >
     )
   }
 }
 
-export default App;
+export default withRouter(App);
 

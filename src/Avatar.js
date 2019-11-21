@@ -1,13 +1,14 @@
 import React from 'react';
-import './Bubble.css';
+import './Avatar.css';
 
-const Bubble = ({ person }) => {
+const Bubble = ({ person, getUserChoice }) => {
    return (
-      <>
+      <> 
          <img 
             src={person.image} 
             alt={person.name} 
-            className="bubble-img"
+            className="avatar-img"
+            onClick={() => getUserChoice(person)}
             />
       </>
    )
