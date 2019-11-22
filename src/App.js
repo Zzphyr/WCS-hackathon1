@@ -16,9 +16,6 @@ class App extends React.Component {
       userInfo: {},
       chosenOne: {},
       settings: {
-
-     
-
         species: [{value: 'human', label: 'Human'}],
         genders: [{value: 'female', label: 'Female'},{value: 'male', label: 'Male'}],
         homeworlds: [{value: 'tatooine', label: 'Tatooine'}],
@@ -38,31 +35,31 @@ class App extends React.Component {
     fetch("https://melroune.github.io/starwars-api/api/all.json")
       .then(response => response.json())
       .then(data => {
-        this.setState(state => ({
-          ...state,
-          people: data
-        }));
-      });
-  };
+        this.setState(
+          state => ({
+            ...state,
+            people: data
+          })
+        )
+      })
+  }
 
-  handleChosenOne = chosenOne => {
+  handleChosenOne = (chosenOne) => {
     this.setState(
       state => ({
         ...state,
-        chosenOne: chosenOne
+        chosenOne: chosenOne,
       }),
-      () => this.props.history.push("/profile")
-    );
-  };
+      () => this.props.history.push('/profile')
+    )
+  }
 
   handleFilterChange = (values, option) => {
     this.setState({
+
       settings: {
         ...this.state.settings,
-
-
-
-        [option] : values,   
+        [option]: values,
       },
     })
   }
@@ -85,6 +82,10 @@ class App extends React.Component {
     const { people, chosenOne, settings, cart, favorites } = this.state;
     return (
       <div>
+        <div>
+          <img className="app.logo" src={"https://i.imgur.com/zbor5E3.png"} style={{ width: 60 }} alt="Logo"/>
+        </div>
+
         <div id="stars"></div>
         <div id="stars2"></div>
         <div id="stars3"></div>
