@@ -1,5 +1,24 @@
 .avatar-img {
-   width: 100px;
+   width: 100%;
+   min-width: 300px;
+   max-width: 450px;
+   height: 50%;
    border-radius: 50%;
-   z-index: 900;
+   margin: 0 10vh;
+   transition: ease-out 500ms;
+   filter: grayscale(80%);
+}
+
+.avatar-img:hover {
+   transform: scale(0.95);
+   filter: grayscale(0%);
+}
+
+@media screen and (max-width: 500px) {
+   .avatar-img {
+      min-width: 250px;
+      max-width: 450px;
+      margin: 0 5vh;
+   }
+
 }

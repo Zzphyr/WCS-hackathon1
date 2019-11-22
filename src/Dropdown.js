@@ -1,6 +1,8 @@
 import React from 'react';
 import Select from 'react-select';
 
+import './Dropdown.css';
+
 // import file containing the lists of species, gender and homeworld
 import { speciesList, gendersList, homeworldsList } from './docs/arrayList';
 
@@ -31,42 +33,48 @@ const Dropdown = ({ onFilterChange }) => {
     };
 
    return (
-      <div>
-         Gender:
-         <Select
-            defaultValue={gendersList.map(x => makeOption(x))}
-            isMulti
-            name="genders"
-            options={gendersList.map(x => makeOption(x))}
-            className="basic-multi-select"
-            classNamePrefix="select"
-            onChange={(values)=>handleInputChange(values,"genders")}
-            />
-            Species:
-         <Select
-            isMulti
-            defaultValue={{value: 'human', label: 'Human'}}
-            name="species"
-            options={speciesList.map(x => makeOption(x))}
-            className="basic-multi-select"
-            classNamePrefix="select"
-            closeMenuOnSelect={false}
-            onChange={(values)=>handleInputChange(values,"species")}
-            />
-            Homeworld:
-         <Select
-            isMulti
-            defaultValue={{value: 'tatooine', label: 'Tatooine'}}
-            name="homeworlds"
-            options={homeworldsList.map(x => makeOption(x))}
-            className="basic-multi-select"
-            classNamePrefix="select"
-            closeMenuOnSelect={false}
-            onChange={(values)=>handleInputChange(values,"homeworlds")}
-            />
-            <em>Note: remove all options to see everyone</em>
-      </div>
-
+      <>
+         <article className="dropdowns">
+            <div className="dropdown">
+               <p className="option-desc">Gender</p>
+               <Select
+                  defaultValue={gendersList.map(x => makeOption(x))}
+                  isMulti
+                  name="genders"
+                  options={gendersList.map(x => makeOption(x))}
+                  className="basic-multi-select"
+                  classNamePrefix="select"
+                  onChange={(values)=>handleInputChange(values,"genders")}
+                  label="genders"
+                  />
+            </div>
+            <div className="dropdown">
+               <p className="option-desc">Species</p>
+               <Select
+                  isMulti
+                  defaultValue={{value: 'human', label: 'Human'}}
+                  name="species"
+                  options={speciesList.map(x => makeOption(x))}
+                  className="basic-multi-select"
+                  classNamePrefix="select"
+                  onChange={(values)=>handleInputChange(values,"species")}
+                  />
+            </div>
+            <div className="dropdown">
+               <p className="option-desc">Homeworld</p>
+               <Select
+                  isMulti
+                  defaultValue={{value: 'tatooine', label: 'Tatooine'}}
+                  name="homeworlds"
+                  options={homeworldsList.map(x => makeOption(x))}
+                  className="basic-multi-select"
+                  classNamePrefix="select"
+                  onChange={(values)=>handleInputChange(values,"homeworlds")}
+                  />
+            </div>
+         </article>
+         <p className="dropdown-note">Note: remove all options to see everyone</p>
+      </>
    )
 
 

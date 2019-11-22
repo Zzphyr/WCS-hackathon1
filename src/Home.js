@@ -1,8 +1,11 @@
 import React from 'react';
 import Avatar from './Avatar';
 import Dropdown from './Dropdown';
+import ParticleComponent from './ParticleComponent';
+import HorizontalScroll from 'react-scroll-horizontal';
 
 import './Home.scss';
+import './Home.css';
        
 const Home = ({ people, getUserChoice, onFilterChange, chosenSettings }) => {
 
@@ -24,88 +27,29 @@ const Home = ({ people, getUserChoice, onFilterChange, chosenSettings }) => {
 
     return (
 
-        <>
-            <p>Home page</p>
-
-            <Dropdown onFilterChange={onFilterChange} />
-            {(filteredPeople.length < 1) ? <p>Sorry! The force wasn't strong enought... please try other criteria!</p> : <p>We found {filteredPeople.length} matches </p>}
-            {console.log("filtered",filteredPeople)}
-                {filteredPeople.map((person) => {
-                    return (
-                        <div key={person.name}>
-                            <Avatar person={person} getUserChoice={getUserChoice} />
-                        </div>
-                )
-            })}
-
-
+      <main className="home-main">
+        <h1 className="home-title">Select your target</h1>
         
-        <div class="page">
-  <div class="content">
-    <div class="circle">
-      <div class="circle_title">
-        <h2>Luke Skywalker</h2>
-        <h3>Has the longest Lightsaber</h3>
-      </div>
-      <div class="circle_inner">
-        <div class="circle_inner__layer">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/pc1.png"/>
-        </div>
-        <div class="circle_inner__layer">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/pc3.png"/>
-        </div>
-        <div class="circle_inner__layer">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/pc2.png"/>
-        </div>
-      </div>
-      <div class="content_shadow"></div>
-    </div>
-  </div>
-  <div class="content">
-    <div class="circle">
-      <div class="circle_title">
-        <h2>Darth Vader</h2>
-        <h3>Can't breath properly</h3>
-      </div>
-      <div class="circle_inner">
-        <div class="circle_inner__layer">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/pc4.png"/>
-        </div>
-        <div class="circle_inner__layer">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/pc5.png"/>
-        </div>
-        <div class="circle_inner__layer">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/pc6.png"/>
-        </div>
-      </div>
-      <div class="content_shadow"></div>
-    </div>
-  </div>
-  <div class="content">
-    <div class="circle">
-      <div class="circle_title">
-        <h2>Chewie</h2>
-        <h3>Big heart, woolly hair</h3>
-      </div>
-      <div class="circle_inner">
-        <div class="circle_inner__layer">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/pc7.png"/>
-        </div>
-        <div class="circle_inner__layer">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/pc8.png"/>
-        </div>
-        <div class="circle_inner__layer">
-          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/217233/pc9.png"/>
-        </div>
-      </div>
-      <div class="content_shadow"></div>
-    </div>
-  </div>
-</div>
+        <Dropdown onFilterChange={onFilterChange} />
+        {
+          (filteredPeople.length < 1) ?
+            <p className="result-text">Sorry! The Force wasn't strong enought... please try other criteria!</p> :
+            <p className="result-text">We found {filteredPeople.length} matches </p>
+        }
+        <div className="people-list">
+                <HorizontalScroll reverseScroll='true'>
+            {
+              filteredPeople.map((person) => (
+                
 
-
-        </>
-        )     
+                  <Avatar key={person.name} person={person} getUserChoice={getUserChoice} />
+               
+              ))
+            }
+            </HorizontalScroll>
+        </div>
+    </main>
+  )     
 }
 
     export default Home; 

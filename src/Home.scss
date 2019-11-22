@@ -101,7 +101,7 @@ body{
     &_inner{
       border-radius:200px;
       background: #B0D5D6;
-      overflow:hidden;
+      overflow-y:hidden;
       margin: auto;
       width:200px;
       z-index:1;
@@ -139,5 +139,33 @@ body{
     top: -44px;
     transition:all .3s;
     z-index: 0;
+  }
+}
+.people-list {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  
+}
+
+.people-list div div {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.199);
+}
+
+@media screen and (max-width: 500px) {
+  .home-main {
+     height: 150vh !important;
+  }
+  .dropdowns {
+     align-items: center;
+  }
+  .dropdown {
+    font-size: small;
+  }
+  .people-list div div {
+    align-items: flex-start;
+    padding-top: 6vh;
   }
 }
