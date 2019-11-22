@@ -2,18 +2,25 @@
     display: flex;
     margin: 0 auto;
     width: 80%;
-    padding-top: 12%;
-    color:white;
+    padding-top: 10%;
 }
 
 .profile-pict{
     width: 280px;
     height: auto;
-    margin: 0 auto;
+    margin: auto;
     width:300px;
     border: 3px solid lightgray;
-    box-shadow: 0 1px 6px 0 rgb(255, 213, 76); 
+    box-shadow: 0 1px 6px 0 #FFE81F; 
     z-index:50000;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+   
+.profile-pict:hover {
+    -webkit-transform: rotate(-15deg);
+    transform: rotate(-15deg);
 }
 
 .profile-settings{
@@ -23,10 +30,12 @@
 }
 
 .profile-name{
-    font-size:20px;
+    font-size:35px;
     font-weight: bold;
     width: auto;
     font-family: 'Distant Galaxy Regular';
+    color: #FFE81F;
+    text-shadow: 2px 2px black;
 }
 
 .profile-description{
@@ -39,10 +48,13 @@
     margin: auto 0;
     padding: 0;
     width: 80%;
+    color: #FFE81F;
+    text-shadow: 2px 2px black;
 }
 
 .profile-quote{
-    padding:35px;
+    font-size:22px;
+    padding:5px;
     width:80%;
     text-align: center;
 }
@@ -55,7 +67,9 @@
   text-align: center;
   color:white;
   padding-top: 10px;
-  font-size: 14px;
+  padding-bottom: 10px;
+  font-size: 16px;
+  font-weight:bold;
   font-family: 'Heebo', sans-serif;
 }
 .profile-form{
@@ -63,6 +77,8 @@
     flex-direction: column;
     padding-top:30px;
     margin: 0 auto;
+    width: 100%;
+    height: auto;
 }
 
 .profile-email{
@@ -72,18 +88,19 @@
 .profile-email-style{
     border-radius: 10px;
     border: 3px solid lightgray;
-    box-shadow: 0 1px 6px 0 rgb(255, 213, 76); 
+    box-shadow: 0 1px 6px 0 #FFE81F; 
     font-size: 14px;
-    font-family: 'Heebo', sans-serif;
     font-weight: bold;
     margin: 2px; 
+    font-family: 'Quicksand', sans-serif;
+   
 }
 
 .profile-form-text-area{ 
-    background-image:url(https://i.imgur.com/OYOcNwj.png); 
-    background-color:transparent; 
+    background-image:url(https://www.seekpng.com/png/full/15-151339_pink-pixel-heart-png-minecraft-empty-heart.png); 
+    background-color:white; 
     background-repeat:no-repeat;
-    background-size: 100%;
+    background-size: 35%;
     background-position: center;
     width: 350px;
     height: 150px;
@@ -91,22 +108,23 @@
     border: 3px solid lightgray;
     box-shadow: 0 1px 6px 0 rgb(255, 213, 76); 
     margin: 0 auto;
-    font-family: 'Heebo', sans-serif;
     font-weight: bold;
     font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .profile-btn {
     text-align: center;
     width: 100px;
     margin:0 auto;
-    padding-top: 20px;   
+    padding-top: 20px; 
 }
 
 .profile-btn-style{
     width:100px;
-    height: auto;
     font-family: 'Heebo', sans-serif;
+    font-size: 14px;
+    height: auto;
     font-weight: bold;
     color:rgb(212, 0, 99);
     box-shadow: 0 1px 6px 0 rgb(218, 126, 22);
@@ -125,6 +143,10 @@
         text-align: center;
         margin: 0 auto;
         width: 100%;
+    }
+
+    .profile-name{
+        font-size: 25px;
     }
     .profile-pict{
         width: 200px;
@@ -146,7 +168,8 @@
 }
 
 .profile-email-style{
-    font-size: 14px;
+    font-size: 13px;
+    width: auto;
     
 }
 .profile-form-text-area{ 
