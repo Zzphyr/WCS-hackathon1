@@ -1,7 +1,6 @@
 import React from 'react';
 import Avatar from './Avatar';
 import Dropdown from './Dropdown';
-import ParticleComponent from './ParticleComponent';
 import HorizontalScroll from 'react-scroll-horizontal';
 
 import './Home.scss';
@@ -20,16 +19,13 @@ const Home = ({ people, getUserChoice, onFilterChange, chosenSettings }) => {
         return chosenSpecies.push(el["value"])
     }) 
 
-
     const filteredPeople = people.filter((person) =>  {
             return chosenGenders.includes(person.gender) && chosenSpecies.includes(person.species) && chosenHomeworlds.includes(person.homeworld) 
         })
 
     return (
-
       <main className="home-main">
         <h1 className="home-title">Select your target</h1>
-        
         <Dropdown onFilterChange={onFilterChange} />
         {
           (filteredPeople.length < 1) ?
@@ -37,16 +33,13 @@ const Home = ({ people, getUserChoice, onFilterChange, chosenSettings }) => {
             <p className="result-text">We found {filteredPeople.length} matches </p>
         }
         <div className="people-list">
-                <HorizontalScroll reverseScroll='true'>
+          <HorizontalScroll reverseScroll='true'>
             {
               filteredPeople.map((person) => (
-                
-
-                  <Avatar key={person.name} person={person} getUserChoice={getUserChoice} />
-               
+                <Avatar key={person.name} person={person} getUserChoice={getUserChoice} />
               ))
             }
-            </HorizontalScroll>
+          </HorizontalScroll>
         </div>
     </main>
   )     

@@ -24,9 +24,9 @@ const Dropdown = ({ onFilterChange }) => {
               break;
             case "homeworlds":
                values = homeworldsList.map(x => makeOption(x));
-              break;
+               break;
             default:
-              console.log("ops, something went wrong on dropdown selection")
+               console.log("ops, something went wrong on dropdown selection")
           }
       }
       onFilterChange(values, option);
@@ -76,8 +76,6 @@ const Dropdown = ({ onFilterChange }) => {
          <p className="dropdown-note">Note: remove all options to see everyone</p>
       </>
    )
-
-
 };
 
 export default Dropdown;
