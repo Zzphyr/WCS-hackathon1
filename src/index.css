@@ -12,3 +12,9 @@ code {
     monospace;
 }
 
+@font-face {
+  font-family: 'Distant Galaxy Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Distant Galaxy Regular'), url('/DISTGRG_.woff') format('woff');
+}
