@@ -1,0 +1,21 @@
+.home-title {
+   color: white;
+   text-align: center;
+   font-family: 'Distant Galaxy Regular', sans-serif;
+   font-size: 3em;
+}
+
+.result-text {
+   color: rgb(226, 194, 12);
+   margin-bottom: 2vh;
+   text-align: center;
+   font-weight: 600;
+   font-family: 'Heebo', sans-serif;
+}
+
+@media screen and (max-width: 500px) {
+   .home-title {
+      font-size: x-large;
+   }
+
+}
