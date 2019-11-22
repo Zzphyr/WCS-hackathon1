@@ -19,6 +19,8 @@ class App extends React.Component {
         genders: [{value: 'female', label: 'Female'},{value: 'male', label: 'Male'}],
         homeworlds: [{value: 'tatooine', label: 'Tatooine'}],
       },
+      cart: [],
+      favorites: []
     }
   }
 
@@ -60,9 +62,21 @@ class App extends React.Component {
     })
   }
 
+  handleAddToList = (chosenOne, list) => {
+    this.setState((prevState)  => {
+      const updatedList = prevState[list].includes(chosenOne) ?
+        prevState[list].filter((element) => element!==chosenOne) :
+        [...prevState[list], chosenOne];
+
+      return {
+        ...prevState,
+        [list]: updatedList
+      }
+    })
+  }
 
   render() {
-    const { people, userInfo, chosenOne, settings } = this.state;
+    const { people, chosenOne, settings, cart, favorites } = this.state;
     return (
 
       <div>
@@ -96,6 +110,9 @@ class App extends React.Component {
               render = {() => (
                 <Profile
                   chosenOne={chosenOne}
+                  isFavorite={favorites.includes(chosenOne)}
+                  isInCart={cart.includes(chosenOne)}
+                  onAddToList={this.handleAddToList}
                 />
               )}
             />

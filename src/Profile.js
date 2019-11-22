@@ -2,8 +2,9 @@
 import React from 'react';
 import starwars from 'starwars';
 import './Profile.css';
+import Star from './Star';
 
-const Profile = ({ chosenOne }) => {
+const Profile = ({ chosenOne, isFavorite, onAddToList }) => {
     return (
         <div className="profile-container">
             <div>
@@ -13,6 +14,7 @@ const Profile = ({ chosenOne }) => {
                 <div className="profile-name"> {chosenOne.name} </div>
                 <div className="profile-settings"> {chosenOne.gender} - {chosenOne.species} - {chosenOne.homeworld} </div>
                 <div className="profile-quote">"{starwars()}"</div>
+                <Star isFavorite={isFavorite} item={chosenOne} onAddToList={onAddToList} />
                 <form action="https://formspree.io/mayyzgrd" className="profile-form" method="post">
                     <div className="profile-email">
                         <input className="profile-email-style" type="email" name='email' id="email" placeholder="Your email" size="30" />
