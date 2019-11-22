@@ -27,7 +27,7 @@ const Home = ({ people, getUserChoice, onFilterChange, chosenSettings }) => {
     return (
       <main className="home-main">
         <h1 className="home-title">Select your target</h1>
-        <h2 className="h2-about"><Link style={{color:'white'}} to="/about">About</Link></h2>
+        <h2 className="h2-about"><Link to="/about">About Us</Link></h2>
         <Dropdown onFilterChange={onFilterChange} />
         {
           (filteredPeople.length < 1) ?

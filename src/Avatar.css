@@ -2,7 +2,7 @@
    width: 100%;
    min-width: 300px;
    max-width: 450px;
-   height: 50%;
+   max-height: 400px;
    border-radius: 50%;
    margin: 0 10vh;
    transition: ease-out 500ms;
