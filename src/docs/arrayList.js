@@ -1,0 +1,5 @@
+export const speciesList = ["human", "droid", "wookie","rodian","hutt","yoda's species","trandoshan","mon calamari","ewok","sullustan","neimoidian","gungan","toydarian","dug","dathomirian","zabrak","twi'lek","aleena","vulptereen","xexto","toong","cerean","nautolan","iridonian zabrak","tholothian","iktotchi","quermian","kel dor","chagrian","geonosian","mirialan","clawdite","besalisk","kaminoan","skakoan","muun","togruta","kaleesh","umbaran","pau'an"];
+
+export const gendersList = ["female","male"];
+
+export const homeworldsList = ["tatooine","naboo","alderaan","stewjon","eriadu","kashyyyk","corellia","Rodia","bestine","kamino","trandosha","socorro","bespin","mon cala","chandrila","endor","sullust","coruscant","neimoidia","toydaria","malastare","dathomir","ryloth","aleen","vulpter","troiken","tund","haruun kal","cerea","glee anselm","nar shaddaa","iktotch","quermia","dorin","champala","geonosis","mirial","serenno","concord dawn","zolan","ojom","skako","scipio","shili","kalee","umbara","utapau","jakku","yavin 4","parnassos"];
