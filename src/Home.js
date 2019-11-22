@@ -1,6 +1,7 @@
 import React from 'react';
 import Avatar from './Avatar';
 import Dropdown from './Dropdown';
+import { Link } from 'react-router-dom';
 import HorizontalScroll from 'react-scroll-horizontal';
 
 import './Home.scss';
@@ -26,6 +27,7 @@ const Home = ({ people, getUserChoice, onFilterChange, chosenSettings }) => {
     return (
       <main className="home-main">
         <h1 className="home-title">Select your target</h1>
+    <h2><Link to="/about">About</Link></h2>
         <Dropdown onFilterChange={onFilterChange} />
         {
           (filteredPeople.length < 1) ?

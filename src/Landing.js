@@ -22,7 +22,7 @@ const CardHeader = styled.header`
   padding-top: 32px;
   padding-bottom: 32px;
   background-color: white;
-  opacity: 0.7;
+  opacity: 0.8;
 `
 
 const CardHeading = styled.h1`
@@ -35,7 +35,7 @@ const CardBody = styled.div`
   padding-right: 32px;
   padding-left: 32px;
   background-color: white;
-  opacity: 0.7;
+  opacity: 0.8;
 `
 
 const CardFieldset = styled.fieldset`
