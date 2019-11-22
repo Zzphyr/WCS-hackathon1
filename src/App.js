@@ -1,11 +1,12 @@
-import React, { Fragment } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import { withRouter } from 'react-router';
-import Home from './Home';
-import Card from './Landing';
-import Profile from './Profile';
+import React, { Fragment } from "react";
+import { Switch, Route } from "react-router-dom";
+import { withRouter } from "react-router";
+import Home from "./Home";
+import Card from "./Landing";
+import Profile from "./Profile";
+import About from "./AboutUs";
 
-import './App.scss';
+import "./App.scss";
 
 class App extends React.Component {
   constructor(props) {
@@ -15,11 +16,14 @@ class App extends React.Component {
       userInfo: {},
       chosenOne: {},
       settings: {
-        species: [{ value: 'human', label: 'Human' }],
-        genders: [{ value: 'female', label: 'Female' }, { value: 'male', label: 'Male' }],
-        homeworlds: [{ value: 'tatooine', label: 'Tatooine' }],
+        species: [{value: 'human', label: 'Human'}],
+        genders: [{value: 'female', label: 'Female'},{value: 'male', label: 'Male'}],
+        homeworlds: [{value: 'tatooine', label: 'Tatooine'}],
       },
+      cart: [],
+      favorites: []
     }
+
   }
 
   componentDidMount() {
@@ -28,7 +32,7 @@ class App extends React.Component {
 
   // Fetch character list from API
   getPeople = () => {
-    fetch('https://melroune.github.io/starwars-api/api/all.json')
+    fetch("https://melroune.github.io/starwars-api/api/all.json")
       .then(response => response.json())
       .then(data => {
         this.setState(
@@ -60,52 +64,63 @@ class App extends React.Component {
     })
   }
 
+  handleAddToList = (chosenOne, list) => {
+    this.setState((prevState)  => {
+      const updatedList = prevState[list].includes(chosenOne) ?
+        prevState[list].filter((element) => element!==chosenOne) :
+        [...prevState[list], chosenOne];
+
+      return {
+        ...prevState,
+        [list]: updatedList
+      }
+    })
+  }
+
 
   render() {
-    const { people, userInfo, chosenOne, settings } = this.state;
+    const { people, chosenOne, settings, cart, favorites } = this.state;
     return (
-
       <div>
         <div>
           <img className="app.logo" src={"https://i.imgur.com/zbor5E3.png"} style={{ width: 60 }} alt="Logo"/>
         </div>
-        <div id='stars'></div>
-        <div id='stars2'></div>
-        <div id='stars3'></div>
-        <div id='title'></div>
+
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div id="title"></div>
 
         <Switch>
-          <Route
-            exact path="/"
-            component={Card}
-          />
-
-          )}
-        />
-            <Route
-            path="/home"
-            render={() => (
-              <Home
-                people={people}
-                getUserChoice={this.handleChosenOne}
-                onFilterChange={this.handleFilterChange}
-                chosenSettings={settings}
-              />
-            )}
-          />
-          <Route
-            path="/profile"
-            render={() => (
-              <Profile
-                chosenOne={chosenOne}
-              />
-            )}
-          />
-        </Switch>
+          <Route exact path="/" component={Card} />
+          )} />
+            <Route 
+              path="/home" 
+              render = {() => (
+                <Home
+                  people={people}
+                  getUserChoice={this.handleChosenOne}
+                  onFilterChange={this.handleFilterChange}
+                  chosenSettings={settings}
+                />
+              )}
+            />
+            <Route 
+              path="/profile"
+              render = {() => (
+                <Profile
+                  chosenOne={chosenOne}
+                  isFavorite={favorites.includes(chosenOne)}
+                  isInCart={cart.includes(chosenOne)}
+                  onAddToList={this.handleAddToList}
+                />
+              )}
+            />
+            <Route path="/about" component={About} />
+          </Switch>
       </div>
-    )
+    );
   }
 }
 
 export default withRouter(App);
-
