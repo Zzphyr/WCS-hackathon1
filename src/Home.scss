@@ -1,6 +1,14 @@
 
-h2 {
-    text-align: right; 
+.h2-about {
+    position: fixed;
+    top: 0.5em;
+    right: 1em;
+    text-align: right;
+    color: white;
+  }
+  
+.h2-about a {
+    text-decoration: none; 
 }
 
 .people-list {

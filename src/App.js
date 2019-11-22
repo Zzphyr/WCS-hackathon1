@@ -83,7 +83,9 @@ class App extends React.Component {
     return (
       <div>
         <div>
-          <img className="app.logo" src={"https://i.imgur.com/zbor5E3.png"} style={{ width: 60 }} alt="Logo"/>
+          <a href="/home">
+            <img className="app.logo" src={"https://i.imgur.com/zbor5E3.png"} style={{ width: 60 }} alt="Logo"/>
+            </a>
         </div>
 
         <div id="stars"></div>
