@@ -192,6 +192,14 @@ class Card extends React.Component {
               required
             />
           </CardFieldset>
+
+          <CardFieldset>
+            <CardInput
+              placeholder='Homeworld'
+              type='text'
+              required
+            />
+          </CardFieldset>
           
           <CardFieldset>
             <CardInput

@@ -16,14 +16,17 @@ class App extends React.Component {
       userInfo: {},
       chosenOne: {},
       settings: {
-        species: [{ value: "human", label: "Human" }],
-        genders: [
-          { value: "female", label: "Female" },
-          { value: "male", label: "Male" }
-        ],
-        homeworlds: [{ value: "tatooine", label: "Tatooine" }]
-      }
-    };
+
+     
+
+        species: [{value: 'human', label: 'Human'}],
+        genders: [{value: 'female', label: 'Female'},{value: 'male', label: 'Male'}],
+        homeworlds: [{value: 'tatooine', label: 'Tatooine'}],
+      },
+      cart: [],
+      favorites: []
+    }
+
   }
 
   componentDidMount() {
@@ -56,13 +59,30 @@ class App extends React.Component {
     this.setState({
       settings: {
         ...this.state.settings,
-        [option]: values
+
+
+
+        [option] : values,   
+      },
+    })
+  }
+
+  handleAddToList = (chosenOne, list) => {
+    this.setState((prevState)  => {
+      const updatedList = prevState[list].includes(chosenOne) ?
+        prevState[list].filter((element) => element!==chosenOne) :
+        [...prevState[list], chosenOne];
+
+      return {
+        ...prevState,
+        [list]: updatedList
       }
-    });
-  };
+    })
+  }
+
 
   render() {
-    const { people, userInfo, chosenOne, settings } = this.state;
+    const { people, chosenOne, settings, cart, favorites } = this.state;
     return (
       <div>
         <div id="stars"></div>
@@ -73,23 +93,30 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={Card} />
           )} />
-          <Route
-            path="/home"
-            render={() => (
-              <Home
-                people={people}
-                getUserChoice={this.handleChosenOne}
-                onFilterChange={this.handleFilterChange}
-                chosenSettings={settings}
-              />
-            )}
-          />
-          <Route
-            path="/profile"
-            render={() => <Profile chosenOne={chosenOne} />}
-          />
-          <Route path="/about" component={About} />
-        </Switch>
+            <Route 
+              path="/home" 
+              render = {() => (
+                <Home
+                  people={people}
+                  getUserChoice={this.handleChosenOne}
+                  onFilterChange={this.handleFilterChange}
+                  chosenSettings={settings}
+                />
+              )}
+            />
+            <Route 
+              path="/profile"
+              render = {() => (
+                <Profile
+                  chosenOne={chosenOne}
+                  isFavorite={favorites.includes(chosenOne)}
+                  isInCart={cart.includes(chosenOne)}
+                  onAddToList={this.handleAddToList}
+                />
+              )}
+            />
+            <Route path="/about" component={About} />
+          </Switch>
       </div>
     );
   }

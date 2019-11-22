@@ -133,6 +133,16 @@
     box-shadow: 0 1px 6px 0 rgb(255, 213, 76); 
 }
 
+.tellmemore {
+    font-size: small;
+    padding-top: 2em;
+    color: lightgray;
+    transition: all ease 100ms ;
+}
+.tellmemore:hover {
+    color: #FFE81F; 
+}
+
 
 
 @media screen and (max-width: 800px ) {
@@ -187,4 +197,9 @@
     width:60px;
     
 }
+.tellmemore {
+    font-size: xx-small;
+    padding-top: 1em;
+}
+
 }

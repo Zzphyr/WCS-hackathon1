@@ -2,8 +2,10 @@ import React from 'react';
 import Avatar from './Avatar';
 import Dropdown from './Dropdown';
 import { Link } from 'react-router-dom';
+import HorizontalScroll from 'react-scroll-horizontal';
 
 import './Home.scss';
+import './Home.css';
        
 const Home = ({ people, getUserChoice, onFilterChange, chosenSettings }) => {
 
@@ -18,33 +20,31 @@ const Home = ({ people, getUserChoice, onFilterChange, chosenSettings }) => {
         return chosenSpecies.push(el["value"])
     }) 
 
-
     const filteredPeople = people.filter((person) =>  {
             return chosenGenders.includes(person.gender) && chosenSpecies.includes(person.species) && chosenHomeworlds.includes(person.homeworld) 
         })
 
     return (
-
-        <>
-            <p>Home page</p>
-
-            <h2><Link to="/about">About</Link></h2>
-            <Dropdown onFilterChange={onFilterChange} />
-            {(filteredPeople.length < 1) ? <p>Sorry! The force wasn't strong enought... please try other criteria!</p> : <p>We found {filteredPeople.length} matches </p>}
-            {console.log("filtered",filteredPeople)}
-                {filteredPeople.map((person) => {
-                    return (
-                        <div key={person.name}>
-                            <Avatar person={person} getUserChoice={getUserChoice} />
-                        </div>
-                )
-            })}
-
-
-        
-        
-        </>
-        )     
+      <main className="home-main">
+        <h1 className="home-title">Select your target</h1>
+    <h2><Link to="/about">About</Link></h2>
+        <Dropdown onFilterChange={onFilterChange} />
+        {
+          (filteredPeople.length < 1) ?
+            <p className="result-text">Sorry! The Force wasn't strong enought... please try other criteria!</p> :
+            <p className="result-text">We found {filteredPeople.length} matches </p>
+        }
+        <div className="people-list">
+          <HorizontalScroll reverseScroll='true'>
+            {
+              filteredPeople.map((person) => (
+                <Avatar key={person.name} person={person} getUserChoice={getUserChoice} />
+              ))
+            }
+          </HorizontalScroll>
+        </div>
+    </main>
+  )     
 }
 
     export default Home; 

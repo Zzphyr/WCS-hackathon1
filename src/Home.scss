@@ -1,5 +1,30 @@
+
 h2 {
-    
-    text-align: right;
-    
+    text-align: right; 
+}
+
+.people-list {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  
+}
+
+.people-list div div {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.199);
+}
+
+@media screen and (max-width: 500px) {
+  .dropdowns {
+     align-items: center;
+  }
+  .dropdown {
+    font-size: small;
+  }
+  .people-list div div {
+    align-items: flex-start;
+    padding-top: 6vh;
+  }
 }

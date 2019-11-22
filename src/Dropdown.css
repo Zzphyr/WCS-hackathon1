@@ -1,0 +1,38 @@
+.dropdowns {
+   display: flex;
+   width: 100vw;
+   justify-content: center;
+   margin-top: 5vh;
+}
+
+.dropdown {
+   margin: 0 2vw;
+   width: 25vw;
+}
+
+.option-desc {
+   color: white;
+   margin: 0;
+   font-family: 'Heebo', sans-serif;
+}
+
+.dropdown-note {
+   color: white;
+   font-size: small;
+   font-style: italic;
+   text-align: center;
+}
+
+@media screen and (max-width: 500px) {
+   .dropdowns {
+      flex-direction: column;
+      margin:1vh
+   }
+   .dropdown {
+      width: 90vw;
+      margin: 0;
+   }
+   .dropdown-note {
+      font-size: x-small;
+   }
+}
