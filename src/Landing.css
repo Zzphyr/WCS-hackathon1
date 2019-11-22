@@ -18,3 +18,9 @@ Link {
 Link:hover {
     text-decoration: none!important; 
 }
+
+@media screen and (max-width: 500px) {
+  .card-container {
+    padding-top:7vh;
+  }
+}
