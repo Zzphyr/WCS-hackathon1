@@ -1,14 +1,15 @@
-
 .h2-about {
     position: fixed;
-    top: 0.5em;
+    top: 1px;
     right: 1em;
     text-align: right;
-    color: white;
   }
   
 .h2-about a {
     text-decoration: none; 
+    font-family: 'Distant Galaxy Regular', sans-serif;
+    color: rgb(223, 223, 223);
+    font-size: smaller;
 }
 
 .people-list {
@@ -20,7 +21,7 @@
 
 .people-list div div {
   display: flex;
-  align-items: center;
+  padding-top: 5vh;
   background: rgba(0, 0, 0, 0.199);
 }
 
