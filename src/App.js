@@ -14,7 +14,12 @@ class App extends React.Component {
     this.state = {
       people: [],
       userInfo: {},
-      chosenOne: {}
+      chosenOne: {},
+      settings: {
+        species: [{value: 'human', label: 'Human'}],
+        genders: [{value: 'female', label: 'Female'},{value: 'male', label: 'Male'}],
+        homeworlds: [{value: 'tatooine', label: 'Tatooine'}],
+      },
     }
   }
 
@@ -36,7 +41,7 @@ class App extends React.Component {
       })
   }
 
-  handleUserChoice = (chosenOne) => {
+  handleChosenOne = (chosenOne) => {
     this.setState(      
       state => ({
           ...state,
@@ -46,10 +51,19 @@ class App extends React.Component {
     )
   }
 
+  handleFilterChange = (values, option) => {
+    this.setState({
+      
+      settings: {
+        ...this.state.settings,
+        [option] : values,   
+      },
+    })
+  }
+
+
   render() {
-    const { people, userInfo, chosenOne } = this.state;
-    //console.log(people)
-    //console.log("App chosenOne", chosenOne)
+    const { people, userInfo, chosenOne, settings } = this.state;
     return (
       <Fragment>
           <Switch>
@@ -70,7 +84,9 @@ class App extends React.Component {
               render = {() => (
                 <Home
                   people={people}
-                  getUserChoice={this.handleUserChoice}
+                  getUserChoice={this.handleChosenOne}
+                  onFilterChange={this.handleFilterChange}
+                  chosenSettings={settings}
                 />
               )}
             />
