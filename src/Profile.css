@@ -98,7 +98,7 @@
 }
 
 .profile-form-text-area{ 
-    background-image:url(https://www.seekpng.com/png/full/15-151339_pink-pixel-heart-png-minecraft-empty-heart.png); 
+    
     background-color:white; 
     background-repeat:no-repeat;
     background-size: 35%;
@@ -127,7 +127,6 @@
     font-size: 14px;
     height: auto;
     font-weight: bold;
-    color:rgb(212, 0, 99);
     box-shadow: 0 1px 6px 0 rgb(218, 126, 22);
     border-radius: 10px;
     border: 3px solid lightgray;
