@@ -19,7 +19,7 @@ const Profile = ({ chosenOne }) => {
                     </div>
                     <textarea className="profile-form-text-area" id="text"></textarea>
                     <div className="profile-btn">
-                        <button className="profile-btn-style" type="submit">Send <i class="fas fa-heart"></i></button>
+                        <button className="profile-btn-style" type="submit">Send</button>
                     </div>
                 </form>
 
